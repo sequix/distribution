@@ -11,11 +11,11 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/docker/distribution"
-	"github.com/docker/distribution/reference"
-	"github.com/docker/distribution/registry/storage/cache/memory"
-	"github.com/docker/distribution/registry/storage/driver/testdriver"
-	"github.com/docker/distribution/testutil"
+	"github.com/sequix/distribution"
+	"github.com/sequix/distribution/reference"
+	"github.com/sequix/distribution/registry/storage/cache/memory"
+	"github.com/sequix/distribution/registry/storage/driver/testdriver"
+	"github.com/sequix/distribution/testutil"
 	"github.com/opencontainers/go-digest"
 )
 

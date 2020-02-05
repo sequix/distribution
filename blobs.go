@@ -8,7 +8,7 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/docker/distribution/reference"
+	"github.com/sequix/distribution/reference"
 	"github.com/opencontainers/go-digest"
 	"github.com/opencontainers/image-spec/specs-go/v1"
 )

@@ -9,9 +9,9 @@ import (
 	"strconv"
 	"testing"
 
-	"github.com/docker/distribution"
-	"github.com/docker/distribution/reference"
-	"github.com/docker/distribution/testutil"
+	"github.com/sequix/distribution"
+	"github.com/sequix/distribution/reference"
+	"github.com/sequix/distribution/testutil"
 	"github.com/opencontainers/go-digest"
 )
 

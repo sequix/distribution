@@ -6,9 +6,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/docker/distribution/context"
-	"github.com/docker/distribution/reference"
-	"github.com/docker/distribution/registry/storage/driver/inmemory"
+	"github.com/sequix/distribution/context"
+	"github.com/sequix/distribution/reference"
+	"github.com/sequix/distribution/registry/storage/driver/inmemory"
 )
 
 func testRefs(t *testing.T) (reference.Reference, reference.Reference, reference.Reference) {

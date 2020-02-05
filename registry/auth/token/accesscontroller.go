@@ -12,8 +12,8 @@ import (
 	"os"
 	"strings"
 
-	dcontext "github.com/docker/distribution/context"
-	"github.com/docker/distribution/registry/auth"
+	dcontext "github.com/sequix/distribution/context"
+	"github.com/sequix/distribution/registry/auth"
 	"github.com/docker/libtrust"
 )
 

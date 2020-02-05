@@ -5,7 +5,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/docker/distribution"
+	"github.com/sequix/distribution"
 	"github.com/opencontainers/go-digest"
 )
 

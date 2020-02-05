@@ -5,11 +5,11 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/docker/distribution"
-	"github.com/docker/distribution/manifest"
-	"github.com/docker/distribution/manifest/schema2"
-	"github.com/docker/distribution/reference"
-	"github.com/docker/distribution/registry/storage/driver/inmemory"
+	"github.com/sequix/distribution"
+	"github.com/sequix/distribution/manifest"
+	"github.com/sequix/distribution/manifest/schema2"
+	"github.com/sequix/distribution/reference"
+	"github.com/sequix/distribution/registry/storage/driver/inmemory"
 	digest "github.com/opencontainers/go-digest"
 )
 

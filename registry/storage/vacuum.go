@@ -4,8 +4,8 @@ import (
 	"context"
 	"path"
 
-	dcontext "github.com/docker/distribution/context"
-	"github.com/docker/distribution/registry/storage/driver"
+	dcontext "github.com/sequix/distribution/context"
+	"github.com/sequix/distribution/registry/storage/driver"
 	"github.com/opencontainers/go-digest"
 )
 

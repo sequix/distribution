@@ -42,9 +42,9 @@ import (
 	"io"
 	"time"
 
-	dcontext "github.com/docker/distribution/context"
-	prometheus "github.com/docker/distribution/metrics"
-	storagedriver "github.com/docker/distribution/registry/storage/driver"
+	dcontext "github.com/sequix/distribution/context"
+	prometheus "github.com/sequix/distribution/metrics"
+	storagedriver "github.com/sequix/distribution/registry/storage/driver"
 	"github.com/docker/go-metrics"
 )
 

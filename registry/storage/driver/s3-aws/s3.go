@@ -36,11 +36,11 @@ import (
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/s3"
 
-	dcontext "github.com/docker/distribution/context"
-	"github.com/docker/distribution/registry/client/transport"
-	storagedriver "github.com/docker/distribution/registry/storage/driver"
-	"github.com/docker/distribution/registry/storage/driver/base"
-	"github.com/docker/distribution/registry/storage/driver/factory"
+	dcontext "github.com/sequix/distribution/context"
+	"github.com/sequix/distribution/registry/client/transport"
+	storagedriver "github.com/sequix/distribution/registry/storage/driver"
+	"github.com/sequix/distribution/registry/storage/driver/base"
+	"github.com/sequix/distribution/registry/storage/driver/factory"
 )
 
 const driverName = "s3aws"

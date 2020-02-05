@@ -4,10 +4,10 @@ import (
 	"context"
 	"net/http"
 
-	"github.com/docker/distribution"
+	"github.com/sequix/distribution"
 
-	dcontext "github.com/docker/distribution/context"
-	"github.com/docker/distribution/reference"
+	dcontext "github.com/sequix/distribution/context"
+	"github.com/sequix/distribution/reference"
 	"github.com/opencontainers/go-digest"
 )
 

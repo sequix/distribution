@@ -5,9 +5,9 @@ import (
 	"fmt"
 	"net/url"
 
-	"github.com/docker/distribution"
-	dcontext "github.com/docker/distribution/context"
-	"github.com/docker/distribution/manifest/ocischema"
+	"github.com/sequix/distribution"
+	dcontext "github.com/sequix/distribution/context"
+	"github.com/sequix/distribution/manifest/ocischema"
 	"github.com/opencontainers/go-digest"
 	"github.com/opencontainers/image-spec/specs-go/v1"
 )

@@ -4,9 +4,9 @@ import (
 	"encoding/json"
 	"net/http"
 
-	"github.com/docker/distribution"
-	"github.com/docker/distribution/registry/api/errcode"
-	"github.com/docker/distribution/registry/api/v2"
+	"github.com/sequix/distribution"
+	"github.com/sequix/distribution/registry/api/errcode"
+	"github.com/sequix/distribution/registry/api/v2"
 	"github.com/gorilla/handlers"
 )
 

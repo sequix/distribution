@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"sync"
 
-	prometheus "github.com/docker/distribution/metrics"
+	prometheus "github.com/sequix/distribution/metrics"
 	"github.com/docker/go-metrics"
 )
 

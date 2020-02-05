@@ -3,8 +3,8 @@ package cache
 import (
 	"context"
 
-	"github.com/docker/distribution"
-	prometheus "github.com/docker/distribution/metrics"
+	"github.com/sequix/distribution"
+	prometheus "github.com/sequix/distribution/metrics"
 	"github.com/opencontainers/go-digest"
 )
 

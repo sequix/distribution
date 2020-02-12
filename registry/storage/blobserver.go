@@ -6,8 +6,8 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/docker/distribution"
-	"github.com/docker/distribution/registry/storage/driver"
+	"github.com/sequix/distribution"
+	"github.com/sequix/distribution/registry/storage/driver"
 	"github.com/opencontainers/go-digest"
 )
 

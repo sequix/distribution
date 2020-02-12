@@ -3,10 +3,10 @@ package handlers
 import (
 	"net/http"
 
-	"github.com/docker/distribution"
-	"github.com/docker/distribution/context"
-	"github.com/docker/distribution/registry/api/errcode"
-	"github.com/docker/distribution/registry/api/v2"
+	"github.com/sequix/distribution"
+	"github.com/sequix/distribution/context"
+	"github.com/sequix/distribution/registry/api/errcode"
+	"github.com/sequix/distribution/registry/api/v2"
 	"github.com/gorilla/handlers"
 	"github.com/opencontainers/go-digest"
 )

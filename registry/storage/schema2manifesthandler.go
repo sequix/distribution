@@ -6,10 +6,10 @@ import (
 	"fmt"
 	"net/url"
 
-	"github.com/docker/distribution"
-	dcontext "github.com/docker/distribution/context"
-	"github.com/docker/distribution/manifest/schema1"
-	"github.com/docker/distribution/manifest/schema2"
+	"github.com/sequix/distribution"
+	dcontext "github.com/sequix/distribution/context"
+	"github.com/sequix/distribution/manifest/schema1"
+	"github.com/sequix/distribution/manifest/schema2"
 	"github.com/opencontainers/go-digest"
 )
 

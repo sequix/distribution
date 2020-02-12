@@ -3,7 +3,7 @@ package schema2
 import (
 	"context"
 
-	"github.com/docker/distribution"
+	"github.com/sequix/distribution"
 	"github.com/opencontainers/go-digest"
 )
 

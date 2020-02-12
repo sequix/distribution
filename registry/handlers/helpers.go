@@ -6,7 +6,7 @@ import (
 	"io"
 	"net/http"
 
-	dcontext "github.com/docker/distribution/context"
+	dcontext "github.com/sequix/distribution/context"
 )
 
 // closeResources closes all the provided resources after running the target

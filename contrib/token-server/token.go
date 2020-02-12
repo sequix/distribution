@@ -12,9 +12,9 @@ import (
 	"strings"
 	"time"
 
-	dcontext "github.com/docker/distribution/context"
-	"github.com/docker/distribution/registry/auth"
-	"github.com/docker/distribution/registry/auth/token"
+	dcontext "github.com/sequix/distribution/context"
+	"github.com/sequix/distribution/registry/auth"
+	"github.com/sequix/distribution/registry/auth/token"
 	"github.com/docker/libtrust"
 )
 

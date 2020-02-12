@@ -7,11 +7,11 @@ import (
 	"path"
 	"time"
 
-	"github.com/docker/distribution"
-	dcontext "github.com/docker/distribution/context"
-	"github.com/docker/distribution/reference"
-	"github.com/docker/distribution/registry/storage/driver"
-	"github.com/docker/distribution/uuid"
+	"github.com/sequix/distribution"
+	dcontext "github.com/sequix/distribution/context"
+	"github.com/sequix/distribution/reference"
+	"github.com/sequix/distribution/registry/storage/driver"
+	"github.com/sequix/distribution/uuid"
 	"github.com/opencontainers/go-digest"
 )
 

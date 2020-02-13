@@ -421,6 +421,7 @@ func (o contentDigestOption) Apply(ms distribution.ManifestService) error {
 	return nil
 }
 
+// (sequix) pull 7
 func (ms *manifests) Get(ctx context.Context, dgst digest.Digest, options ...distribution.ManifestServiceOption) (distribution.Manifest, error) {
 	var (
 		digestOrTag string
@@ -462,16 +463,19 @@ func (ms *manifests) Get(ctx context.Context, dgst digest.Digest, options ...dis
 		mediaTypes = distribution.ManifestMediaTypes()
 	}
 
+	// (sequix) 构建请求manifest的url
 	u, err := ms.ub.BuildManifestURL(ref)
 	if err != nil {
 		return nil, err
 	}
+
 
 	req, err := http.NewRequest("GET", u, nil)
 	if err != nil {
 		return nil, err
 	}
 
+	// Accept 会包含所有注册了的manifest类型
 	for _, t := range mediaTypes {
 		req.Header.Add("Accept", t)
 	}
@@ -500,6 +504,7 @@ func (ms *manifests) Get(ctx context.Context, dgst digest.Digest, options ...dis
 		if err != nil {
 			return nil, err
 		}
+		// 解析实际的manifest内容
 		m, _, err := distribution.UnmarshalManifest(mt, body)
 		if err != nil {
 			return nil, err

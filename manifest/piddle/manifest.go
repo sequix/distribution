@@ -1,48 +1,50 @@
-package schema2
+package piddle
 
 import (
 	"encoding/json"
 	"errors"
 	"fmt"
-
+	"github.com/opencontainers/go-digest"
 	"github.com/sequix/distribution"
 	"github.com/sequix/distribution/manifest"
-	"github.com/opencontainers/go-digest"
 )
 
 const (
-	// MediaTypeManifest specifies the mediaType for the current version.
-	MediaTypeManifest = "application/vnd.docker.distribution.manifest.v2+json"
+	// 请求 Manifest List（Image Index） 时带的Accept；返回时带的Content-Type
+	MediaTypeImageIndex = "application/vnd.piddle.image.index.v1+json"
 
-	// MediaTypeImageConfig specifies the mediaType for the image configuration.
-	MediaTypeImageConfig = "application/vnd.docker.container.image.v1+json"
+	// Image Manifest 中的config，用以索引image config blob
+	MediaTypeImageConfig = "application/vnd.piddle.image.manifest.v1+json"
 
-	// MediaTypePluginConfig specifies the mediaType for plugin configuration.
-	MediaTypePluginConfig = "application/vnd.docker.plugin.v1+json"
+	// Image Manifest 中的layers，用以索引layer.tar blob
+	MediaTypeLayer = "application/vnd.piddle.image.layer.v1.tar"
 
-	// MediaTypeLayer is the mediaType used for layers referenced by the
-	// manifest.
-	MediaTypeLayer = "application/vnd.docker.image.rootfs.diff.tar.gzip"
+	// Image Manifest 中的layers，用以索引layer.tar.gz blob
+	MediaTypeLayerGzip = "application/vnd.piddle.image.layer.v1.tar+gzip"
 
-	// MediaTypeForeignLayer is the mediaType used for layers that must be
-	// downloaded from foreign URLs.
-	MediaTypeForeignLayer = "application/vnd.docker.image.rootfs.foreign.diff.tar.gzip"
+	// Image Manifest 中的layers，用以索引layer.tar.zstd blob
+	MediaTypeLayerZstd = "application/vnd.piddle.image.layer.v1.tar+zstd"
 
-	// MediaTypeUncompressedLayer is the mediaType used for layers which
-	// are not compressed.
-	MediaTypeUncompressedLayer = "application/vnd.docker.image.rootfs.diff.tar"
+	// Image Manifest 中的layers，用以索引layer.tar blob，且不可被push到registry
+	MediaTypeNondistributableLayer = "application/vnd.piddle.image.layer.nondistributable.v1.tar"
+
+	// Image Manifest 中的layers，用以索引layer.tar blob，且不可被push到registry
+	MediaTypeNondistributableLayerGzip = "application/vnd.piddle.image.layer.nondistributable.v1.tar+gzip"
+
+	// Image Manifest 中的layers，用以索引layer.tar blob，且不可被push到registry
+	MediaTypeNondistributableLayerZstd = "application/vnd.piddle.image.layer.nondistributable.v1.tar+zstd"
 )
 
 var (
 	// SchemaVersion provides a pre-initialized version structure for this
 	// packages version of the manifest.
 	SchemaVersion = manifest.Versioned{
-		SchemaVersion: 2,
-		MediaType:     MediaTypeManifest,
+		SchemaVersion: 1,
+		MediaType:     MediaTypeImageIndex,
 	}
 )
 
-// manifest的注册例子
+// 注册新的manifest
 func init() {
 	schema2Func := func(b []byte) (distribution.Manifest, distribution.Descriptor, error) {
 		m := new(DeserializedManifest)
@@ -52,17 +54,23 @@ func init() {
 		}
 
 		dgst := digest.FromBytes(b)
-		return m, distribution.Descriptor{Digest: dgst, Size: int64(len(b)), MediaType: MediaTypeManifest}, err
+		return m, distribution.Descriptor{Digest: dgst, Size: int64(len(b)), MediaType: MediaTypeImageIndex}, err
 	}
-	err := distribution.RegisterManifestSchema(MediaTypeManifest, schema2Func)
+	err := distribution.RegisterManifestSchema(MediaTypeImageIndex, schema2Func)
 	if err != nil {
 		panic(fmt.Sprintf("Unable to register manifest: %s", err))
 	}
 }
 
-// Manifest defines a schema2 manifest.
+// Manifest defines a piddle manifest.
 type Manifest struct {
 	manifest.Versioned
+
+	// image manifest 索引的 blob 需要下述数据
+	// 1.表示layer所在的nbd-url
+	// 2.image运行的platform
+	// 3.mediaType，用于自检和兼容
+	// 4.annotation，KV对，任意的附加信息
 
 	// Config references the image configuration as a blob.
 	Config distribution.Descriptor `json:"config"`
@@ -117,9 +125,9 @@ func (m *DeserializedManifest) UnmarshalJSON(b []byte) error {
 		return err
 	}
 
-	if manifest.MediaType != MediaTypeManifest {
+	if manifest.MediaType != MediaTypeImageIndex {
 		return fmt.Errorf("mediaType in manifest should be '%s' not '%s'",
-			MediaTypeManifest, manifest.MediaType)
+			MediaTypeImageIndex, manifest.MediaType)
 
 	}
 
